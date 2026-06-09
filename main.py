@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from config import settings
 from middleware.error_handler import ErrorHandlerMiddleware
 from middleware.request_validation import RequestValidationMiddleware
-from routers import health
+from routers import contracts, health
 
 app = FastAPI(
     title=settings.app_name,
@@ -27,3 +27,4 @@ app.add_middleware(
 
 # Routers
 app.include_router(health.router, prefix="/api/v1")
+app.include_router(contracts.router, prefix="/api/v1")
