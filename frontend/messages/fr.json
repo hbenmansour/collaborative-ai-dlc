@@ -1,0 +1,46 @@
+{
+  "common": {
+    "appName": "ERP Crédit-bail",
+    "loading": "Chargement...",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "export": "Exporter",
+    "actions": "Actions",
+    "confirm": "Confirmer",
+    "back": "Retour",
+    "next": "Suivant",
+    "submit": "Soumettre"
+  },
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "contracts": "Contrats",
+    "customers": "Clients",
+    "billing": "Facturation",
+    "accounting": "Comptabilité",
+    "collections": "Recouvrement",
+    "reports": "Rapports",
+    "settings": "Paramètres",
+    "chat": "Assistant IA"
+  },
+  "auth": {
+    "signIn": "Se connecter",
+    "signOut": "Se déconnecter",
+    "email": "E-mail",
+    "password": "Mot de passe"
+  },
+  "contracts": {
+    "title": "Contrats",
+    "newContract": "Nouveau contrat",
+    "contractNumber": "Numéro de contrat",
+    "status": "Statut",
+    "leaseType": "Type de bail",
+    "customer": "Client",
+    "startDate": "Date de début",
+    "endDate": "Date de fin"
+  }
+}

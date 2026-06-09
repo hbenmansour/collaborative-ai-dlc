@@ -1,0 +1,46 @@
+{
+  "common": {
+    "appName": "Leasing ERP",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "actions": "Actions",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "contracts": "Contracts",
+    "customers": "Customers",
+    "billing": "Billing",
+    "accounting": "Accounting",
+    "collections": "Collections",
+    "reports": "Reports",
+    "settings": "Settings",
+    "chat": "AI Assistant"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "email": "Email",
+    "password": "Password"
+  },
+  "contracts": {
+    "title": "Contracts",
+    "newContract": "New Contract",
+    "contractNumber": "Contract Number",
+    "status": "Status",
+    "leaseType": "Lease Type",
+    "customer": "Customer",
+    "startDate": "Start Date",
+    "endDate": "End Date"
+  }
+}
