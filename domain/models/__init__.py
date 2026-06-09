@@ -1,7 +1,7 @@
 from domain.models.contract import Contract, ContractTerms, Amendment, ContractTemplate
 from domain.models.customer import Customer, KYCDocument
 from domain.models.billing import PaymentSchedule, Installment
-from domain.models.configuration import Country, Currency, TaxRule
+from domain.models.configuration import Country, Currency, TaxRule, TaxType
 
 __all__ = [
     "Contract",
@@ -15,4 +15,5 @@ __all__ = [
     "Country",
     "Currency",
     "TaxRule",
+    "TaxType",
 ]
