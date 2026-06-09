@@ -33,6 +33,14 @@
     "email": "E-mail",
     "password": "Mot de passe"
   },
+  "chat": {
+    "title": "Assistant IA",
+    "placeholder": "Posez votre question à l'assistant IA...",
+    "send": "Envoyer",
+    "newChat": "Nouvelle conversation",
+    "emptyState": "Posez-moi des questions sur les contrats, la facturation ou les opérations de crédit-bail.",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
   "contracts": {
     "title": "Contrats",
     "newContract": "Nouveau contrat",
