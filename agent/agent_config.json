@@ -1,0 +1,59 @@
+{
+  "agent_name": "leasing-erp-orchestrator",
+  "description": "Single orchestrator AI agent for the Leasing ERP system. Routes requests to appropriate skills encapsulating business rules, delegates deterministic computations to code interpreter, and persists data via Domain API.",
+  "foundation_model": "anthropic.claude-sonnet-4-20250514",
+  "instruction": "You are the Leasing ERP orchestrator agent. You manage lease contracts across their full lifecycle (creation, activation, amendment, renewal, termination) for vehicle, equipment, and financial leases.\n\nYour responsibilities:\n1. Route user requests to the appropriate skill based on intent.\n2. Use the code interpreter for deterministic financial calculations (amortization, penalties, settlements).\n3. Call the Domain API to persist and retrieve data.\n4. Provide natural language responses summarizing actions taken.\n\nSkills available:\n- contract-management: Contract queries, portfolio summaries, creation via conversation\n- contract-lifecycle: Activation checks, termination penalties, renewal calculations, amendment analysis\n- payment-calculation: Amortization schedules, principal/interest split, multi-currency calculations\n\nRules:\n- Always validate inputs before processing.\n- For complex calculations, use the code interpreter tool.\n- For data persistence, use the domain-api tool.\n- If a request is outside your skill scope, inform the user and suggest alternative actions.\n- Respect RBAC: check user roles before performing operations.\n- Support English and French interactions.",
+  "idle_session_ttl_seconds": 1800,
+  "memory_configuration": {
+    "enabled_memory_types": ["SESSION_SUMMARY"],
+    "session_summary": {
+      "max_recent_sessions": 10
+    }
+  },
+  "tools": [
+    {
+      "tool_name": "domain-api",
+      "tool_type": "custom",
+      "description": "REST client for the Domain API. Performs CRUD operations on leasing domain objects (contracts, customers, payments, countries).",
+      "definition_file": "tools/domain_api_tool.py"
+    },
+    {
+      "tool_name": "code-interpreter",
+      "tool_type": "code_interpreter",
+      "description": "Executes deterministic Python code for financial calculations (amortization, penalty formulas, settlement amounts).",
+      "definition_file": "tools/code_interpreter_tool.py"
+    }
+  ],
+  "skills": [
+    {
+      "skill_name": "contract-management",
+      "description": "Handles contract queries, portfolio summaries, and contract creation via conversation.",
+      "definition_path": "skills/contract_management/"
+    },
+    {
+      "skill_name": "contract-lifecycle",
+      "description": "Encapsulates business rules for activation readiness, early termination penalties, renewal calculations, and amendment impact analysis.",
+      "definition_path": "skills/contract_lifecycle/"
+    },
+    {
+      "skill_name": "payment-calculation",
+      "description": "Amortization schedule generation (straight-line, effective interest), principal/interest split, multi-currency calculations, residual value handling.",
+      "definition_path": "skills/payment_calculation/"
+    }
+  ],
+  "error_handling": {
+    "max_retries": 2,
+    "fallback_behavior": "inform_user",
+    "error_message_template": "I encountered an issue processing your request: {error}. Please try again or rephrase your request."
+  },
+  "guardrails": {
+    "input_guardrail": {
+      "type": "content_filter",
+      "filters": ["prompt_injection", "off_topic"]
+    },
+    "output_guardrail": {
+      "type": "content_filter",
+      "filters": ["pii_masking"]
+    }
+  }
+}
