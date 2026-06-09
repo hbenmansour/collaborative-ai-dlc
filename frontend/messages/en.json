@@ -33,6 +33,14 @@
     "email": "Email",
     "password": "Password"
   },
+  "chat": {
+    "title": "AI Assistant",
+    "placeholder": "Ask the AI assistant...",
+    "send": "Send message",
+    "newChat": "New Chat",
+    "emptyState": "Ask me about contracts, billing, or any leasing operations.",
+    "error": "Something went wrong. Please try again."
+  },
   "contracts": {
     "title": "Contracts",
     "newContract": "New Contract",
