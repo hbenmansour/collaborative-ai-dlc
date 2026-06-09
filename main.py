@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from config import settings
 from middleware.error_handler import ErrorHandlerMiddleware
 from middleware.request_validation import RequestValidationMiddleware
-from routers import billing, contracts, health, configuration
+from routers import billing, contracts, contract_lifecycle, health, configuration
 
 app = FastAPI(
     title=settings.app_name,
@@ -29,4 +29,5 @@ app.add_middleware(
 app.include_router(health.router, prefix="/api/v1")
 app.include_router(contracts.router, prefix="/api/v1")
 app.include_router(billing.router, prefix="/api/v1")
+app.include_router(contract_lifecycle.router, prefix="/api/v1")
 app.include_router(configuration.router)
